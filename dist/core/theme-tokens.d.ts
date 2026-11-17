@@ -1,0 +1,61 @@
+export type ThemeTokenMode = 'light' | 'dark';
+export type ThemeColorTokens = {
+    primary: string;
+    primaryHover: string;
+    primaryPressed: string;
+    primarySuppl: string;
+    primarySoft: string;
+    primarySofter: string;
+    accent: string;
+    accentHover: string;
+    accentSoft: string;
+    success: string;
+    warning: string;
+    danger: string;
+    info: string;
+    bg: string;
+    bgSoft: string;
+    surface: string;
+    surfaceMuted: string;
+    surfaceElevated: string;
+    surfaceOverlay: string;
+    border: string;
+    borderMuted: string;
+    text: string;
+    textMuted: string;
+    textSubtle: string;
+    icon: string;
+};
+export type LayoutTokens = {
+    headerHeight: string;
+    sidebarWidth: string;
+    sidebarCollapsedWidth: string;
+    contentMaxWidth: string;
+    radiusSm: string;
+    radiusMd: string;
+    radiusLg: string;
+    radiusXl: string;
+};
+export type ShadowTokens = {
+    focus: string;
+    header: string;
+    sidebar: string;
+    card: string;
+    menuActive: string;
+};
+export type ThemeTokens = {
+    mode: ThemeTokenMode;
+    color: ThemeColorTokens;
+    layout: LayoutTokens;
+    shadow: ShadowTokens;
+};
+export type ThemeTokenOverrides = Partial<{
+    color: Partial<ThemeColorTokens>;
+    layout: Partial<LayoutTokens>;
+    shadow: Partial<ShadowTokens>;
+}>;
+export declare const toRgbChannel: (value: string) => string;
+export declare const toAlphaColor: (value: string, alpha: number) => string;
+export declare const createThemeTokens: (mode: ThemeTokenMode, primaryColor?: string, overrides?: ThemeTokenOverrides) => ThemeTokens;
+export declare const createThemeCssVariables: (tokens: ThemeTokens) => Record<string, string>;
+export declare const applyThemeTokens: (tokens: ThemeTokens, target?: HTMLElement) => void;
